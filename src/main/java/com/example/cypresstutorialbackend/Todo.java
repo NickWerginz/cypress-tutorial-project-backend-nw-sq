@@ -5,6 +5,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @Entity
 public class Todo {
@@ -16,6 +18,8 @@ public class Todo {
     private String title;
     private String priority;
     private boolean completed;
+    private String category;
+    private Date dueDate;
 
 }
 

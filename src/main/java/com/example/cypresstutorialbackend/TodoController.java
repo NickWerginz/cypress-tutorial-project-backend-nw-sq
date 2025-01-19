@@ -4,6 +4,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+@CrossOrigin(origins = "http://localhost:3000") // Erlaubt Anfragen vom Frontend
 @RestController
 @RequestMapping("/api/todos")
 public class TodoController {
@@ -32,6 +35,8 @@ public class TodoController {
         todo.setTitle(todoDetails.getTitle());
         todo.setPriority(todoDetails.getPriority());
         todo.setCompleted(todoDetails.isCompleted());
+        todo.setCategory(todoDetails.getCategory());
+        todo.setDueDate(todoDetails.getDueDate());
 
         Todo updatedTodo = todoRepository.save(todo);
         return ResponseEntity.ok(updatedTodo);
